@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F8F9FA;
+  --charcoal: #333333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-charcoal font-inter antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-poppins font-semibold tracking-tight;
+}
+
+.section-container {
+  @apply max-w-content mx-auto px-6 md:px-12 py-20 md:py-32;
+}
+
+.glass-card {
+  @apply bg-white bg-opacity-70 backdrop-blur-md border border-white border-opacity-30 shadow-sm rounded-2xl;
+}
+
+.btn-primary {
+  @apply px-8 py-3 bg-accent text-white rounded-full font-medium transition-all duration-300 hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] shadow-sm;
+}
+
+.btn-secondary {
+  @apply px-8 py-3 border border-charcoal text-charcoal rounded-full font-medium transition-all duration-300 hover:bg-charcoal hover:text-white hover:scale-[1.02] active:scale-[0.98];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
