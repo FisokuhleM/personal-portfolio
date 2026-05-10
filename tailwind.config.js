@@ -11,15 +11,17 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        background: "#F8F9FA", // Off-white
-        charcoal: "#333333", // Dark charcoal
-        accent: {
-          DEFAULT: "#1A1A1A", // Muted black
-          blue: "#4A90E2", // Subtle blue
-        }
+        background: "#0f0f10",
+        surface: "#1a1a1b",
+        primary: "#e4e4e7",
+        secondary: "#a1a1aa",
+        accent: "#d4d4d8",
       },
       maxWidth: {
-        'content': '1100px',
+        'content': '1200px',
+      },
+      letterSpacing: {
+        'tighter-heading': '-0.04em',
       }
     },
   },

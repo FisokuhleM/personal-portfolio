@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from './Section';
 import { motion } from 'framer-motion';
+import { ExternalLink, Server, Cloud, Cpu } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
@@ -8,59 +8,84 @@ const Experience = () => {
       company: "Ergosense (Pty) Ltd",
       role: "Software Developer",
       dates: "2025 — Present",
-      responsibilities: [
-        "Working on cloud-connected dashboard solutions by developing and enhancing features integrated with AWS Lambda functions. Contribute to scalable frontend and serverless workflows focused on performance, maintainability, and user experience.",
-      ]
+      description: "Leading the development of cloud-connected dashboards and serverless infrastructure.",
+      highlights: [
+        "Architected scalable dashboard solutions using React and Next.js.",
+        "Integrated complex AWS Lambda serverless functions for real-time data processing.",
+        "Engineered cloud-connected systems for IoT sensor management.",
+        "Spearheaded feature expansion focusing on data visualization and user performance."
+      ],
+      icon: <Cloud className="text-accent" size={24} strokeWidth={1} />
     },
   ];
 
   return (
-    <Section id="experience" className="bg-white">
-      <div className="flex flex-col gap-12">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-3xl md:text-4xl text-accent">Professional Experience</h2>
-          <div className="w-20 h-1 bg-accent-blue rounded-full" />
-        </div>
+    <section id="experience" className="section-container relative overflow-hidden">
+      <div className="absolute top-0 right-0 pointer-events-none opacity-[0.02] -mr-20">
+        <h2 className="text-[25vw] font-black uppercase leading-none">Career</h2>
+      </div>
 
-        <div className="flex flex-col gap-12">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="relative pl-8 md:pl-0 border-l md:border-l-0 border-gray-100"
-            >
-              <div className="grid md:grid-cols-4 gap-4 md:gap-12">
-                <div className="md:text-right flex flex-col gap-1">
-                  <span className="text-accent-blue font-poppins font-semibold text-sm uppercase tracking-widest">{exp.dates}</span>
-                  <span className="text-gray-400 font-inter text-sm">{exp.company}</span>
+      <div className="flex flex-col gap-12 mb-20">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
+          Professional <br/>
+          <span className="text-secondary/40">Journey.</span>
+        </h2>
+      </div>
+
+      <div className="flex flex-col gap-24">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="editorial-grid"
+          >
+            <div className="col-span-12 lg:col-span-4">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 bg-surface border border-white/5">
+                  {exp.icon}
                 </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-primary">{exp.company}</h3>
+                  <p className="text-sm uppercase tracking-widest text-secondary/60">{exp.dates}</p>
+                </div>
+              </div>
+              <p className="text-secondary leading-relaxed font-inter pr-8">
+                {exp.description}
+              </p>
+            </div>
 
-                <div className="md:col-span-3 flex flex-col gap-6">
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-2xl text-accent font-semibold">{exp.role}</h3>
-                  </div>
-
-                  <ul className="flex flex-col gap-4">
-                    {exp.responsibilities.map((task, i) => (
-                      <li key={i} className="text-gray-500 font-inter flex gap-3 leading-relaxed">
-                        <span className="text-accent-blue mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent-blue" />
-                        {task}
-                      </li>
-                    ))}
-                  </ul>
+            <div className="col-span-12 lg:col-span-7 lg:col-start-6">
+              <div className="editorial-border">
+                <h4 className="text-xl font-bold text-primary mb-8 uppercase tracking-tighter">Core Responsibilities</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {exp.highlights.map((item, i) => (
+                    <motion.div 
+                      key={i}
+                      whileHover={{ x: 5 }}
+                      className="flex gap-4 group"
+                    >
+                      <span className="text-accent/30 font-poppins font-bold text-xs mt-1">0{i+1}</span>
+                      <p className="text-secondary group-hover:text-primary transition-colors duration-300 font-inter leading-relaxed">
+                        {item}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
-              {/* Timeline Dot (Mobile only) */}
-              <div className="absolute top-0 -left-1.5 w-3 h-3 bg-accent-blue rounded-full md:hidden" />
-            </motion.div>
-          ))}
-        </div>
+              <div className="mt-12 flex gap-4">
+                <div className="px-4 py-2 bg-surface border border-white/5 text-[10px] uppercase tracking-widest font-bold text-secondary">AWS Lambda</div>
+                <div className="px-4 py-2 bg-surface border border-white/5 text-[10px] uppercase tracking-widest font-bold text-secondary">React</div>
+                <div className="px-4 py-2 bg-surface border border-white/5 text-[10px] uppercase tracking-widest font-bold text-secondary">Serverless</div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </Section>
+    </section>
   );
 };
 
