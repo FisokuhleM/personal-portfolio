@@ -4,17 +4,17 @@ import { motion } from 'framer-motion';
 const Education = () => {
   const educationData = [
     {
-      institution: "IIE's Varsity College",
-      qualification: "Bachelor of IT in App Development",
-      dates: "2022 — 2024",
-      description: "Specialized in software architecture, cloud systems, and high-performance computing.",
-    },
-    {
       institution: "Highveld Park High School",
       qualification: "National Senior Certificate",
       dates: "2016 — 2020",
       description: "Academic focus on computer studies and mathematics.",
-    }
+    },
+    {
+      institution: "IIE's Varsity College",
+      qualification: "Bachelor of Computer & Information Sciences in App Development",
+      dates: "2022 — 2024",
+      description: "Specialized in software architecture, cloud systems, and high-performance computing.",
+    },
   ];
 
   return (
